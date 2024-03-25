@@ -1,6 +1,8 @@
-﻿namespace Autoglass.API.Models;
+﻿using Autoglass.API.Shared.Base;
 
-public class Product
+namespace Autoglass.API.Models;
+
+public class Product : BaseEntiy
 {
     public int CodigoProduto { get; set; }
 

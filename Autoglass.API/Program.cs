@@ -1,5 +1,6 @@
 using Autoglass.API.Infra.Configurations;
 using Autoglass.API.Infra.Extensions;
+using Autoglass.API.Infra.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -9,6 +10,9 @@ services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
+
+//Binding services
+services.AddScoped<IProductRepository, ProductRepository>();
 
 //Configurations
 services.ConfigureDbConfigOptions();

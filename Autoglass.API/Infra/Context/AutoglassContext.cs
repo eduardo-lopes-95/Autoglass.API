@@ -20,6 +20,6 @@ public class AutoglassContext : DbContext
     private void SetupProduct(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Product>()
-            .HasKey(e => e.CodigoProduto);
+            .HasKey(e => e.Id);
     }
 }
