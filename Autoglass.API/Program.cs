@@ -1,11 +1,19 @@
-var builder = WebApplication.CreateBuilder(args);
+using Autoglass.API.Infra.Configurations;
+using Autoglass.API.Infra.Extensions;
 
+var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 // Add services to the container.
 
-builder.Services.AddControllers();
+services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
+
+//Configurations
+services.ConfigureDbConfigOptions();
+services.ConfigureDbContext();
+services.ConfigureDbHealthCheck();
 
 var app = builder.Build();
 
@@ -19,6 +27,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseHealthChecks("/status");
 
 app.MapControllers();
 
