@@ -6,6 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 // Add services to the container.
 
+//Configurations
+services.ConfigureDbConfigOptions();
+services.ConfigureDbContext();
+services.ConfigureDbHealthCheck();
+services.ConfigureAutomapper();
+
 services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 services.AddEndpointsApiExplorer();
@@ -13,11 +19,6 @@ services.AddSwaggerGen();
 
 //Binding services
 services.AddScoped<IProductRepository, ProductRepository>();
-
-//Configurations
-services.ConfigureDbConfigOptions();
-services.ConfigureDbContext();
-services.ConfigureDbHealthCheck();
 
 var app = builder.Build();
 

@@ -1,9 +1,12 @@
-﻿using Autoglass.API.Shared.Base;
+﻿using Autoglass.API.Models;
+using Autoglass.API.Shared.Base;
 
-namespace Autoglass.API.Models;
+namespace Autoglass.API.Shared;
 
-public class Product : BaseEntity
+public class ResponseReadProductDto : BaseDto<ResponseReadProductDto, Product>
 {
+    public int Id { get; set; }
+
     public int CodigoProduto { get; set; }
 
     public string DescricaoProduto { get; set; }
@@ -19,14 +22,4 @@ public class Product : BaseEntity
     public string DescricaoFornecedor { get; set; }
 
     public string CNPJFornecedor { get; set; }
-
-    public Product()
-    {
-        SituacaoProduto = true;
-    }
-
-    public string ObterStatus()
-    {
-        return SituacaoProduto ? "Ativo" : "Inativo";
-    }
 }
