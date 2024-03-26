@@ -16,7 +16,7 @@ services.ConfigureDbHealthCheck();
 services.ConfigureBaseUrl();
 services.ConfigureSwagger();
 services.ConfigureAutomapper();
-services.AddControllers();
+services.AddControllers().AddValidationControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 //Binding services

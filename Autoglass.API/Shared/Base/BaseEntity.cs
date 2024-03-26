@@ -14,12 +14,12 @@ public class BaseEntity
     /// <summary>
     /// Obtém ou define a data e hora em que a entidade foi criada.
     /// </summary>
-    /// <example>2024-03-26 08:30:00</example>
+    /// <example>2024-03-26T08:30:00</example>
     public DateTime CreatedDate { get; set; }
 
     /// <summary>
     /// Obtém ou define a data e hora da última modificação na entidade.
     /// </summary>
-    /// <example>2024-03-26 10:15:00</example>
+    /// <example>2024-03-26T08:30:00</example>
     public DateTime ModifiedDate { get; set; }
 }

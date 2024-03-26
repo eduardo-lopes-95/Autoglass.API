@@ -29,6 +29,9 @@
             Disable product by Id
             </summary>
         </member>
+        <member name="M:Autoglass.API.Infra.Filter.ValidateModelStateFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <inheritdoc />
+        </member>
         <member name="T:Autoglass.API.Shared.Base.BaseEntity">
             <summary>
             Classe base para todas as entidades do sistema.
@@ -44,13 +47,13 @@
             <summary>
             Obtém ou define a data e hora em que a entidade foi criada.
             </summary>
-            <example>2024-03-26 08:30:00</example>
+            <example>2024-03-26T08:30:00</example>
         </member>
         <member name="P:Autoglass.API.Shared.Base.BaseEntity.ModifiedDate">
             <summary>
             Obtém ou define a data e hora da última modificação na entidade.
             </summary>
-            <example>2024-03-26 10:15:00</example>
+            <example>2024-03-26T08:30:00</example>
         </member>
         <member name="T:Autoglass.API.Shared.Requests.RequestCreateProductDto">
             <summary>
@@ -79,13 +82,13 @@
             <summary>
             Obtém ou define a data de fabricação do produto.
             </summary>
-            <example>2024-03-26 08:30:00</example>
+            <example>2024-03-26T08:30:00</example>
         </member>
         <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.DataValidade">
             <summary>
             Obtém ou define a data de validade do produto.
             </summary>
-            <example>2024-03-26 08:30:00</example>
+            <example>2024-03-26T08:30:00</example>
         </member>
         <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.CodigoFornecedor">
             <summary>
@@ -116,6 +119,18 @@
             Obtém ou define a situação do produto.
             </summary>
             <example>Ativo</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestUpdateProductDto.DataFabricacao">
+            <summary>
+            Obtém ou define a data de fabricação do produto.
+            </summary>
+            <example>2024-03-26T08:30:00</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestUpdateProductDto.DataValidade">
+            <summary>
+            Obtém ou define a data de validade do produto.
+            </summary>
+            <example>2024-03-26T08:30:00</example>
         </member>
     </members>
 </doc>

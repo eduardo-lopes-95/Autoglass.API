@@ -29,13 +29,13 @@ public class RequestCreateProductDto : BaseDto<RequestCreateProductDto, Product>
     /// <summary>
     /// Obtém ou define a data de fabricação do produto.
     /// </summary>
-    /// <example>2024-03-26 08:30:00</example>
+    /// <example>2024-03-26T08:30:00</example>
     public DateTime DataFabricacao { get; set; }
 
     /// <summary>
     /// Obtém ou define a data de validade do produto.
     /// </summary>
-    /// <example>2024-03-26 08:30:00</example>
+    /// <example>2024-03-26T08:30:00</example>
     public DateTime DataValidade { get; set; }
 
     /// <summary>

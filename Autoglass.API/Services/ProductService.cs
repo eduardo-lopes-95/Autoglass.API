@@ -1,6 +1,7 @@
 ﻿using Autoglass.API.Infra.Filter;
 using Autoglass.API.Infra.Helper;
 using Autoglass.API.Infra.Repositories;
+using Autoglass.API.Infra.Validators;
 using Autoglass.API.Services.Interfaces;
 using Autoglass.API.Shared.Base;
 using Autoglass.API.Shared.Requests;
@@ -43,6 +44,8 @@ public class ProductService : IProductService
     {
         cancellationToken.ThrowIfCancellationRequested();
 
+        await new CreateProductRequestValidator().ValidateAsync(dto, cancellationToken);
+
         var product = dto.MapToEntity(dto);
 
         await ProductRepository.AddProduct(product);
@@ -71,6 +74,8 @@ public class ProductService : IProductService
     public async Task<BaseResponse<ResponseReadProductDto>> EditProductByIdAsync(int id, RequestUpdateProductDto dto, CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
+
+        await new UpdateProductRequestValidator().ValidateAsync(dto, cancellationToken);
 
         var foundProduct = await ProductRepository.GetByIdProductAsync(id);
 
