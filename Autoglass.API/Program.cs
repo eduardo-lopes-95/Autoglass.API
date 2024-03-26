@@ -13,9 +13,9 @@ services.AddEndpointsApiExplorer();
 services.ConfigureDbConfigOptions();
 services.ConfigureDbContext();
 services.ConfigureDbHealthCheck();
-services.ConfigureAutomapper();
 services.ConfigureBaseUrl();
 services.ConfigureSwagger();
+services.ConfigureAutomapper();
 services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 

@@ -1,5 +1,6 @@
 ﻿using Autoglass.API.Shared.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Linq.Expressions;
 
 namespace Autoglass.API.Shared.Base;
@@ -33,15 +34,24 @@ public abstract class BaseRepository<TContext, TEntity> : IBaseRepository<TEntit
         return await Context.Set<TEntity>().Where(predicate).ToListAsync();
     }
 
-    public async Task<int> Remove(TEntity entity)
+    public async Task<int> Remove(TEntity entity, string propertyName)
     {
-        Context.Set<TEntity>().Remove(entity);
+        Edit(entity, propertyName);
         return await Context.SaveChangesAsync();
     }
 
-    public async Task<int> Update(TEntity entity, string propertyName)
+    public async Task<int> Update(TEntity entity, string[] propertysName)
+    {
+        if (propertysName != null && propertysName.Any())
+        {
+            foreach (var property in propertysName)
+                Edit(entity, property);
+        }
+        return await Context.SaveChangesAsync();
+    }
+
+    private void Edit(TEntity entity, string propertyName)
     {
         Context.Entry(entity).Property(propertyName).IsModified = true;
-        return await Context.SaveChangesAsync();
     }
 }
