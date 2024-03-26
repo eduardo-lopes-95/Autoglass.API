@@ -4,5 +4,118 @@
         <name>Autoglass.API</name>
     </assembly>
     <members>
+        <member name="M:Autoglass.API.Controllers.ProductController.CreateProductAsync(Autoglass.API.Shared.Requests.RequestCreateProductDto,System.Threading.CancellationToken)">
+            <summary>
+            Create new product
+            </summary>
+        </member>
+        <member name="M:Autoglass.API.Controllers.ProductController.CreateProductAsync(Autoglass.API.Infra.Filter.PaginationFilter,System.Threading.CancellationToken)">
+            <summary>
+            List all products
+            </summary>
+        </member>
+        <member name="M:Autoglass.API.Controllers.ProductController.CreateProductAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Return product by Id
+            </summary>
+        </member>
+        <member name="M:Autoglass.API.Controllers.ProductController.UpdateProductAsync(System.Int32,Autoglass.API.Shared.Requests.RequestUpdateProductDto,System.Threading.CancellationToken)">
+            <summary>
+            Edit product by Id
+            </summary>
+        </member>
+        <member name="M:Autoglass.API.Controllers.ProductController.RemoveProductAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Disable product by Id
+            </summary>
+        </member>
+        <member name="T:Autoglass.API.Shared.Base.BaseEntity">
+            <summary>
+            Classe base para todas as entidades do sistema.
+            </summary>
+        </member>
+        <member name="P:Autoglass.API.Shared.Base.BaseEntity.Id">
+            <summary>
+            Obtém ou define o identificador único da entidade.
+            </summary>
+            <example>1</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Base.BaseEntity.CreatedDate">
+            <summary>
+            Obtém ou define a data e hora em que a entidade foi criada.
+            </summary>
+            <example>2024-03-26 08:30:00</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Base.BaseEntity.ModifiedDate">
+            <summary>
+            Obtém ou define a data e hora da última modificação na entidade.
+            </summary>
+            <example>2024-03-26 10:15:00</example>
+        </member>
+        <member name="T:Autoglass.API.Shared.Requests.RequestCreateProductDto">
+            <summary>
+            Data Transfer Object (DTO) para criação de um novo produto.
+            </summary>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.CodigoProduto">
+            <summary>
+            Obtém ou define o código do produto.
+            </summary>
+            <example>12345</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.DescricaoProduto">
+            <summary>
+            Obtém ou define a descrição do produto.
+            </summary>
+            <example>Produto A</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.SituacaoProduto">
+            <summary>
+            Obtém ou define a situação do produto.
+            </summary>
+            <example>Inativo</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.DataFabricacao">
+            <summary>
+            Obtém ou define a data de fabricação do produto.
+            </summary>
+            <example>2024-03-26 08:30:00</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.DataValidade">
+            <summary>
+            Obtém ou define a data de validade do produto.
+            </summary>
+            <example>2024-03-26 08:30:00</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.CodigoFornecedor">
+            <summary>
+            Obtém ou define o código do fornecedor do produto.
+            </summary>
+            <example>9876</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.DescricaoFornecedor">
+            <summary>
+            Obtém ou define a descrição do fornecedor do produto.
+            </summary>
+            <example>Fornecedor XYZ</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestCreateProductDto.CNPJFornecedor">
+            <summary>
+            Obtém ou define o CNPJ do fornecedor do produto.
+            </summary>
+            <example>12345678000190</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestUpdateProductDto.DescricaoProduto">
+            <summary>
+            Obtém ou define a descrição do produto.
+            </summary>
+            <example>Produto A</example>
+        </member>
+        <member name="P:Autoglass.API.Shared.Requests.RequestUpdateProductDto.SituacaoProduto">
+            <summary>
+            Obtém ou define a situação do produto.
+            </summary>
+            <example>Ativo</example>
+        </member>
     </members>
 </doc>
