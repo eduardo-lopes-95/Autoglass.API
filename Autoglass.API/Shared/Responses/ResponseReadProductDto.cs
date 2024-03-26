@@ -1,7 +1,7 @@
 ﻿using Autoglass.API.Models;
 using Autoglass.API.Shared.Base;
 
-namespace Autoglass.API.Shared;
+namespace Autoglass.API.Shared.Responses;
 
 public class ResponseReadProductDto : BaseDto<ResponseReadProductDto, Product>
 {
@@ -9,7 +9,7 @@ public class ResponseReadProductDto : BaseDto<ResponseReadProductDto, Product>
 
     public int CodigoProduto { get; set; }
 
-    public string DescricaoProduto { get; set; }
+    public string? DescricaoProduto { get; set; }
 
     public bool SituacaoProduto { get; set; }
 
