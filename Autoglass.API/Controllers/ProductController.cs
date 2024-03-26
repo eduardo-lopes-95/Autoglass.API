@@ -1,5 +1,5 @@
 ﻿using Autoglass.API.Infra.Filter;
-using Autoglass.API.Services;
+using Autoglass.API.Services.Interfaces;
 using Autoglass.API.Shared.Base;
 using Autoglass.API.Shared.Requests;
 using Autoglass.API.Shared.Responses;

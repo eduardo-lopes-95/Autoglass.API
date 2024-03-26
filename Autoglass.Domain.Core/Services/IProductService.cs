@@ -4,7 +4,7 @@ using Autoglass.API.Shared.Requests;
 using Autoglass.API.Shared.Responses;
 using Oceanica.GupyProd.Shared.Base;
 
-namespace Autoglass.API.Services;
+namespace Autoglass.Domain.Core.Services;
 public interface IProductService
 {
     Task<BaseResponse> CreateProductAsync(RequestCreateProductDto dto, CancellationToken cancellationToken = default);

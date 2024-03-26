@@ -2,6 +2,7 @@ using Autoglass.API.Infra.Configurations;
 using Autoglass.API.Infra.Extensions;
 using Autoglass.API.Infra.Repositories;
 using Autoglass.API.Services;
+using Autoglass.API.Services.Interfaces;
 using Oceanica.GupyProd.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
