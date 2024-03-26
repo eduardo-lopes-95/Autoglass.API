@@ -39,16 +39,106 @@ public class ProductService : IProductService
         return pagedResponse;
     }
 
-    public async Task<BaseResponse> CreateProductAsync(RequestCreateProdutoDto dto, CancellationToken cancellationToken = default)
+    public async Task<BaseResponse> CreateProductAsync(RequestCreateProductDto dto, CancellationToken cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
         var product = dto.MapToEntity(dto);
 
-        var result = await ProductRepository.AddProduct(product);
+        await ProductRepository.AddProduct(product);
 
         return new BaseResponse
         {
+            Errors = new List<BaseResponseError>(),
+        };
+    }
+
+    public async Task<BaseResponse<ResponseReadProductDto>> GetProductByIdAsync(int id, CancellationToken cancellationToken = default)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var product = await ProductRepository.GetByIdProductAsync(id);
+
+        var dto = new ResponseReadProductDto().MapToDto(product);
+
+        return new BaseResponse<ResponseReadProductDto>
+        {
+            Data = dto,
+            Errors = new List<BaseResponseError>(),
+        };
+    }
+
+    public async Task<BaseResponse<ResponseReadProductDto>> EditProductByIdAsync(int id, RequestUpdateProductDto dto, CancellationToken cancellationToken = default)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var foundProduct = await ProductRepository.GetByIdProductAsync(id);
+
+        if (foundProduct is null)
+        {
+            return new BaseResponse<ResponseReadProductDto>
+            {
+                Data = new ResponseReadProductDto(),
+                Errors = new List<BaseResponseError>()
+                {
+                    new BaseResponseError()
+                    {
+                        ErrorCode = "ProductNotFound",
+                        Message = $"Product with Code {id} not found"
+                    }
+                },
+            };
+        }
+
+        foundProduct.DescricaoProduto = dto.DescricaoProduto;
+        foundProduct.SituacaoProduto = dto.SituacaoProduto;
+
+        await ProductRepository.UpdateProduct(foundProduct, ["DescricaoProduto", "SituacaoProduto"]);
+
+        var product = await ProductRepository.GetByIdProductAsync(id);
+
+        var response = new ResponseReadProductDto().MapToDto(product);
+
+        return new BaseResponse<ResponseReadProductDto>
+        {
+            Data = response,
+            Errors = new List<BaseResponseError>(),
+        };
+    }
+
+    public async Task<BaseResponse<ResponseReadProductDto>> DisableProductByIdAsync(int id, CancellationToken cancellationToken = default)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        var foundProduct = await ProductRepository.GetByIdProductAsync(id);
+
+        if (foundProduct is null)
+        {
+            return new BaseResponse<ResponseReadProductDto>
+            {
+                Data = new ResponseReadProductDto(),
+                Errors = new List<BaseResponseError>()
+                {
+                    new BaseResponseError()
+                    {
+                        ErrorCode = "ProductNotFound",
+                        Message = $"Product with Code {id} not found"
+                    }
+                },
+            };
+        }
+
+        foundProduct.SituacaoProduto = "Inativo";
+
+        await ProductRepository.RemoveProduct(foundProduct, "SituacaoProduto");
+
+        var product = await ProductRepository.GetByIdProductAsync(id);
+
+        var response = new ResponseReadProductDto().MapToDto(product);
+
+        return new BaseResponse<ResponseReadProductDto>
+        {
+            Data = response,
             Errors = new List<BaseResponseError>(),
         };
     }

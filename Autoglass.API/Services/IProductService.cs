@@ -7,6 +7,9 @@ using Oceanica.GupyProd.Shared.Base;
 namespace Autoglass.API.Services;
 public interface IProductService
 {
-    Task<BaseResponse> CreateProductAsync(RequestCreateProdutoDto dto, CancellationToken cancellationToken = default);
+    Task<BaseResponse> CreateProductAsync(RequestCreateProductDto dto, CancellationToken cancellationToken = default);
+    Task<BaseResponse<ResponseReadProductDto>> DisableProductByIdAsync(int id, CancellationToken cancellationToken = default);
+    Task<BaseResponse<ResponseReadProductDto>> EditProductByIdAsync(int id, RequestUpdateProductDto dto, CancellationToken cancellationToken = default);
     Task<BasePagedResponse<IEnumerable<ResponseReadProductDto>>> GetAllProductsAsync(PaginationFilter filter, CancellationToken cancellationToken = default);
+    Task<BaseResponse<ResponseReadProductDto>> GetProductByIdAsync(int id, CancellationToken cancellationToken = default);
 }
