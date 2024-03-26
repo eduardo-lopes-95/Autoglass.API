@@ -21,5 +21,8 @@ public class AutoglassContext : DbContext
     {
         modelBuilder.Entity<Product>()
             .HasKey(e => e.Id);
+
+        modelBuilder.Entity<Product>()
+            .HasAlternateKey(e => e.CodigoProduto);
     }
 }
