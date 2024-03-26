@@ -9,7 +9,7 @@ public class AutoglassContext : DbContext
     {
     }
 
-    public virtual DbSet<Product> Jobs => Set<Product>();
+    public virtual DbSet<Product> Products => Set<Product>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
