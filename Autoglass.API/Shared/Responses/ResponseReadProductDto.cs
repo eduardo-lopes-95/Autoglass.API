@@ -11,7 +11,7 @@ public class ResponseReadProductDto : BaseDto<ResponseReadProductDto, Product>
 
     public string? DescricaoProduto { get; set; }
 
-    public bool SituacaoProduto { get; set; }
+    public string SituacaoProduto { get; set; }
 
     public DateTime DataFabricacao { get; set; }
 

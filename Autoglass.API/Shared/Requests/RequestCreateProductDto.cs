@@ -3,13 +3,13 @@ using Autoglass.API.Shared.Base;
 
 namespace Autoglass.API.Shared.Requests;
 
-public class RequestCreateProdutoDto : BaseDto<RequestCreateProdutoDto, Product>
+public class RequestCreateProductDto : BaseDto<RequestCreateProductDto, Product>
 {
     public int CodigoProduto { get; set; }
 
     public string? DescricaoProduto { get; set; }
 
-    public bool SituacaoProduto { get; set; }
+    public string SituacaoProduto { get; set; }
 
     public DateTime DataFabricacao { get; set; }
 
