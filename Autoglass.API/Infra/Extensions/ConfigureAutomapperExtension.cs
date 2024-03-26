@@ -4,6 +4,6 @@ public static class ConfigureAutomapperExtension
 {
     public static void ConfigureAutomapper(this IServiceCollection services)
     {
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        services.AddAutoMapper(typeof(Program).Assembly);
     }
 }
