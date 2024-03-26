@@ -31,13 +31,13 @@ public class ProductRepository : BaseRepository<AutoglassContext, Product>, IPro
         return await GetWhereAsync(predicate);
     }
 
-    public async Task<int> RemoveProduct(Product entity)
+    public async Task<int> RemoveProduct(Product entity, string propertyName)
     {
-        return await Remove(entity);
+        return await Remove(entity, propertyName);
     }
 
-    public async Task<int> UpdateProduct(Product entity, string propertyName)
+    public async Task<int> UpdateProduct(Product entity, string[] propertysName)
     {
-        return await Update(entity, propertyName);
+        return await Update(entity, propertysName);
     }
 }

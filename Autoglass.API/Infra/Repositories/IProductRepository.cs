@@ -8,6 +8,6 @@ public interface IProductRepository
     Task<IEnumerable<Product>> GetAllProductsAsync();
     Task<Product> GetByIdProductAsync(int id);
     Task<IEnumerable<Product>> GetByProductConditionAsync(Expression<Func<Product, bool>> predicate);
-    Task<int> RemoveProduct(Product entity);
-    Task<int> UpdateProduct(Product entity, string propertyName);
+    Task<int> RemoveProduct(Product entity, string propertyName);
+    Task<int> UpdateProduct(Product entity, string[] propertysName);
 }
