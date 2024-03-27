@@ -23,4 +23,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Autoglass.API\Autoglass.API.csproj" />
+  </ItemGroup>
+
 </Project>

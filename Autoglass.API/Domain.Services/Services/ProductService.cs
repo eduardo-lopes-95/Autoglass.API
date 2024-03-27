@@ -1,14 +1,14 @@
-﻿using Autoglass.API.Infra.Filter;
+﻿using Autoglass.API.Domain.Core.Interfaces.Repositories;
+using Autoglass.API.Domain.Core.Interfaces.Services;
+using Autoglass.API.Infra.Filter;
 using Autoglass.API.Infra.Helper;
-using Autoglass.API.Infra.Repositories;
 using Autoglass.API.Infra.Validators;
-using Autoglass.API.Services.Interfaces;
 using Autoglass.API.Shared.Base;
 using Autoglass.API.Shared.Requests;
 using Autoglass.API.Shared.Responses;
-using Oceanica.GupyProd.Shared.Base;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
-namespace Autoglass.API.Services;
+namespace Autoglass.API.Domain.Services.Services;
 
 public class ProductService : IProductService
 {
@@ -44,10 +44,22 @@ public class ProductService : IProductService
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        await new CreateProductRequestValidator().ValidateAsync(dto, cancellationToken);
+        var validation = await new CreateProductRequestValidator().ValidateAsync(dto, cancellationToken);
+
+        if(!validation.IsValid)
+        {
+            return new BaseResponse
+            {
+                Errors = validation.Errors.Select(e => new BaseResponseError 
+                {
+                    ErrorCode = e.ErrorCode,
+                    Message = e.ErrorMessage
+                }).ToList()
+            };
+        }
 
         var product = dto.MapToEntity(dto);
-
+         
         await ProductRepository.AddProduct(product);
 
         return new BaseResponse
@@ -62,6 +74,22 @@ public class ProductService : IProductService
 
         var product = await ProductRepository.GetByIdProductAsync(id);
 
+        if(product is null)
+        {
+            return new BaseResponse<ResponseReadProductDto>
+            {
+                Data = new ResponseReadProductDto(),
+                Errors = new List<BaseResponseError>()
+                {
+                    new BaseResponseError
+                    {
+                        ErrorCode = "ProductNotFound",
+                        Message = "Product not found"
+                    }   
+                },
+            };
+        }
+
         var dto = new ResponseReadProductDto().MapToDto(product);
 
         return new BaseResponse<ResponseReadProductDto>
@@ -75,7 +103,20 @@ public class ProductService : IProductService
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        await new UpdateProductRequestValidator().ValidateAsync(dto, cancellationToken);
+        var validation = await new UpdateProductRequestValidator().ValidateAsync(dto, cancellationToken);
+
+        if (!validation.IsValid)
+        {
+            return new BaseResponse<ResponseReadProductDto>
+            {
+                Data = new ResponseReadProductDto(),
+                Errors = validation.Errors.Select(e => new BaseResponseError
+                {
+                    ErrorCode = e.ErrorCode,
+                    Message = e.ErrorMessage
+                }).ToList()
+            };
+        }
 
         var foundProduct = await ProductRepository.GetByIdProductAsync(id);
 

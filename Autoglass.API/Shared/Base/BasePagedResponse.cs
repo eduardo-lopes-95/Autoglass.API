@@ -1,6 +1,4 @@
-﻿using Autoglass.API.Shared.Base;
-
-namespace Oceanica.GupyProd.Shared.Base;
+﻿namespace Autoglass.API.Shared.Base;
 
 public class BasePagedResponse<T> : BaseResponse<T>
 {
@@ -12,7 +10,7 @@ public class BasePagedResponse<T> : BaseResponse<T>
     public int TotalRecords { get; set; }
     public Uri NextPage { get; set; }
     public Uri PreviousPage { get; set; }
-    
+
     public BasePagedResponse(T data, int pageNumber, int pageSize)
     {
         Data = data;

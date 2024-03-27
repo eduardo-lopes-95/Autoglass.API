@@ -1,4 +1,4 @@
-﻿using Autoglass.API.Models;
+﻿using Autoglass.API.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Autoglass.API.Infra.Context;

@@ -1,5 +1,5 @@
-﻿using Autoglass.API.Services.Interfaces;
-using Autoglass.API.Services;
+﻿using Autoglass.API.Domain.Core.Interfaces.Services;
+using Autoglass.API.Domain.Services.Services;
 
 namespace Autoglass.API.Infra.Configurations;
 

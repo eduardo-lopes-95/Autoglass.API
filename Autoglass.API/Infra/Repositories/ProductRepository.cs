@@ -1,5 +1,6 @@
-﻿using Autoglass.API.Infra.Context;
-using Autoglass.API.Models;
+﻿using Autoglass.API.Domain.Core.Interfaces.Repositories;
+using Autoglass.API.Domain.Models;
+using Autoglass.API.Infra.Context;
 using Autoglass.API.Shared.Base;
 using System.Linq.Expressions;
 

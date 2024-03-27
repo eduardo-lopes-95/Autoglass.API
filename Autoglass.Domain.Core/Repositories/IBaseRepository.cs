@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Autoglass.API.Shared.Interfaces;
+namespace Autoglass.Domain.Core.Repositories;
 
 public interface IBaseRepository<TEntity> where TEntity : class
 {

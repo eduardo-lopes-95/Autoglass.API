@@ -1,7 +1,7 @@
 ﻿using Microsoft.OpenApi.Models;
 using System.Reflection;
 
-namespace Oceanica.GupyProd.Extensions;
+namespace Autoglass.API.Infra.Extensions;
 
 public static class ConfigureSwaggerExtension
 {

@@ -1,4 +1,4 @@
-﻿namespace Autoglass.API.Shared.Base;
+﻿namespace Autoglass.Domain.Models;
 
 /// <summary>
 /// Classe base para todas as entidades do sistema.

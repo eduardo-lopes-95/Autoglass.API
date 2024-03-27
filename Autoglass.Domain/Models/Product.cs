@@ -1,6 +1,4 @@
-﻿using Autoglass.API.Shared.Base;
-
-namespace Autoglass.API.Models;
+﻿namespace Autoglass.Domain.Models;
 
 public class Product : BaseEntity
 {

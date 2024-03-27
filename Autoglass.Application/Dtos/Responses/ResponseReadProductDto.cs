@@ -1,7 +1,7 @@
 ﻿using Autoglass.API.Models;
 using Autoglass.API.Shared.Base;
 
-namespace Autoglass.API.Shared.Responses;
+namespace Autoglass.Application.Dtos.Responses;
 
 public class ResponseReadProductDto : BaseDto<ResponseReadProductDto, Product>
 {

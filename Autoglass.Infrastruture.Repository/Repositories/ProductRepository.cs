@@ -1,9 +1,9 @@
-﻿using Autoglass.API.Infra.Context;
-using Autoglass.API.Models;
-using Autoglass.API.Shared.Base;
+﻿using Autoglass.Domain.Core.Repositories;
+using Autoglass.Domain.Models;
+using Autoglass.Infrastructure.Data.Context;
 using System.Linq.Expressions;
 
-namespace Autoglass.API.Infra.Repositories;
+namespace Autoglass.Infrastruture.Repository.Repositories;
 
 public class ProductRepository : BaseRepository<AutoglassContext, Product>, IProductRepository
 {

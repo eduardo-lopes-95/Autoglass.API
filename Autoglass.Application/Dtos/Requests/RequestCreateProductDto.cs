@@ -1,7 +1,7 @@
 ﻿using Autoglass.API.Models;
 using Autoglass.API.Shared.Base;
 
-namespace Autoglass.API.Shared.Requests;
+namespace Autoglass.Application.Dtos.Requests;
 
 /// <summary>
 /// Data Transfer Object (DTO) para criação de um novo produto.

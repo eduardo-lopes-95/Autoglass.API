@@ -1,4 +1,4 @@
-﻿using Autoglass.API.Models;
+﻿using Autoglass.API.Domain.Models;
 using Autoglass.API.Shared.Base;
 
 namespace Autoglass.API.Shared.Responses;

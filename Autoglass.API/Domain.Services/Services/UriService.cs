@@ -1,8 +1,8 @@
-﻿using Autoglass.API.Infra.Filter;
-using Autoglass.API.Services.Interfaces;
+﻿using Autoglass.API.Domain.Core.Interfaces.Services;
+using Autoglass.API.Infra.Filter;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace Autoglass.API.Services;
+namespace Autoglass.API.Domain.Services.Services;
 
 public class UriService : IUriService
 {

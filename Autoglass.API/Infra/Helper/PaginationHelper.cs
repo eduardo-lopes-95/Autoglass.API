@@ -1,6 +1,6 @@
-﻿using Autoglass.API.Infra.Filter;
-using Autoglass.API.Services.Interfaces;
-using Oceanica.GupyProd.Shared.Base;
+﻿using Autoglass.API.Domain.Core.Interfaces.Services;
+using Autoglass.API.Infra.Filter;
+using Autoglass.API.Shared.Base;
 
 namespace Autoglass.API.Infra.Helper;
 

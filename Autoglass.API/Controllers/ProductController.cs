@@ -1,10 +1,9 @@
-﻿using Autoglass.API.Infra.Filter;
-using Autoglass.API.Services.Interfaces;
+﻿using Autoglass.API.Domain.Core.Interfaces.Services;
+using Autoglass.API.Infra.Filter;
 using Autoglass.API.Shared.Base;
 using Autoglass.API.Shared.Requests;
 using Autoglass.API.Shared.Responses;
 using Microsoft.AspNetCore.Mvc;
-using Oceanica.GupyProd.Shared.Base;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net;
 

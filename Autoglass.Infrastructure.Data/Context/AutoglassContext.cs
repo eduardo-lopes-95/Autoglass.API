@@ -1,7 +1,7 @@
-﻿using Autoglass.API.Models;
+﻿using Autoglass.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Autoglass.API.Infra.Context;
+namespace Autoglass.Infrastructure.Data.Context;
 
 public class AutoglassContext : DbContext
 {

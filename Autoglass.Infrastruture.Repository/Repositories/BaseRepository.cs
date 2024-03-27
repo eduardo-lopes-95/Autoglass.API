@@ -1,9 +1,9 @@
-﻿using Autoglass.API.Shared.Interfaces;
+﻿using Autoglass.Domain.Core.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Linq.Expressions;
 
-namespace Autoglass.API.Shared.Base;
+namespace Autoglass.Infrastruture.Repository.Repositories;
 
 public abstract class BaseRepository<TContext, TEntity> : IBaseRepository<TEntity>
     where TContext : DbContext

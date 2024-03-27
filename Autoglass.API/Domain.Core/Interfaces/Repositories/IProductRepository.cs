@@ -1,7 +1,7 @@
-﻿using Autoglass.API.Models;
+﻿using Autoglass.API.Domain.Models;
 using System.Linq.Expressions;
 
-namespace Autoglass.API.Infra.Repositories;
+namespace Autoglass.API.Domain.Core.Interfaces.Repositories;
 public interface IProductRepository
 {
     Task<int> AddProduct(Product entity);
